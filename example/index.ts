@@ -1,12 +1,13 @@
-import sentry from '../src'
+import { sentry } from '../src'
 
 import { Elysia, t } from 'elysia'
 
 const app = new Elysia()
 	.use(sentry())
 	.get('/', ({ Sentry }) => {
-		Sentry.captureMessage('Hello World')
-		return 'Hello World'
+		const message = 'Hello World'
+		Sentry.captureMessage(message)
+		return message
 	})
 	.get(
 		'/error/:message',

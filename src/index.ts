@@ -1,8 +1,8 @@
-import { opentelemetry } from '@elysiajs/opentelemetry'
 import * as Sentry from '@sentry/bun'
+import { opentelemetry } from '@elysiajs/opentelemetry'
 import Elysia from 'elysia'
 
-export default function init(options?: Sentry.BunOptions) {
+export function sentry(options?: Sentry.BunOptions) {
 	const dsn = options?.dsn ?? Bun.env.SENTRY_DSN
 	if (!dsn) {
 		throw new Error('Must provide a DSN')
@@ -23,7 +23,7 @@ export default function init(options?: Sentry.BunOptions) {
 		.use(opentelemetry())
 		.guard({
 			as: 'global',
-			error: ({ error }) => {
+			error: ({ error, Sentry }) => {
 				Sentry.captureException(error)
 			}
 		})
