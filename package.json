@@ -10,13 +10,13 @@
 		"release": "npm run build && npm run test && npm publish --access public"
 	},
 	"author": {
-		"name": "saltyAom",
-		"url": "https://github.com/SaltyAom",
-		"email": "saltyaom@gmail.com"
+		"name": "johnny-woodtke",
+		"url": "https://github.com/johnny-woodtke",
+		"email": "johnny@woodtke.com"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/elysiajs/opentelemetry"
+		"url": "https://github.com/johnny-woodtke/elysiajs-sentry"
 	},
 	"main": "./dist/cjs/index.js",
 	"module": "./dist/index.mjs",
