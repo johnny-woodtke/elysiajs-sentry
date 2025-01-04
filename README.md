@@ -29,5 +29,5 @@ import { Elysia } from 'elysia';
 
 const app = new Elysia()
   .use(sentry())
-  .lisent(3000)
+  .listen(3000);
 ```
