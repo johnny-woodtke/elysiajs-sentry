@@ -1,9 +1,12 @@
-import { sentry } from '../src'
-
+import { cors } from '@elysiajs/cors'
+import { swagger } from '@elysiajs/swagger'
 import { Elysia, t } from 'elysia'
+
+import { sentry } from '../src'
 
 const app = new Elysia()
 	.use(sentry())
+	.use(cors())
 	.get('/', ({ Sentry }) => {
 		const message = 'Hello World'
 		Sentry.captureMessage(message)
@@ -20,6 +23,7 @@ const app = new Elysia()
 			})
 		}
 	)
+	.use(swagger())
 	.listen(3000)
 
 console.log(
