@@ -8,7 +8,9 @@ const tsupConfig: Options = {
 	splitting: false,
 	sourcemap: false,
 	clean: true,
-	bundle: true
+	bundle: true,
+	treeshake: true,
+	external: ['@elysiajs/opentelemetry', '@sentry/bun', 'elysia']
 } satisfies Options
 
 await Promise.all([
