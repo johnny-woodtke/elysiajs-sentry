@@ -1,6 +1,6 @@
 {
 	"name": "elysiajs-sentry",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"license": "MIT",
 	"scripts": {
 		"dev": "bun run --watch example/index.ts",
@@ -35,15 +35,16 @@
 		"opentelemetry",
 		"tracing"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"@elysiajs/opentelemetry": "^1.2.0",
+		"@sentry/bun": "^8.47.0",
+		"elysia": "^1.2.10"
+	},
 	"devDependencies": {
 		"@elysiajs/cors": "^1.2.0",
 		"@elysiajs/eden": "^1.2.0",
-		"@elysiajs/opentelemetry": "^1.2.0",
 		"@elysiajs/swagger": "^1.2.0",
-		"@sentry/bun": "^8.47.0",
 		"@types/bun": "1.1.14",
-		"elysia": "^1.2.10",
 		"eslint": "9.6.0",
 		"tsup": "^8.1.0",
 		"typescript": "^5.7.2"
