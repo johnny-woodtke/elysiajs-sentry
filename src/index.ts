@@ -1,6 +1,6 @@
 import { opentelemetry } from '@elysiajs/opentelemetry'
 import * as Sentry from '@sentry/bun'
-import Elysia from 'elysia'
+import { Elysia } from 'elysia'
 
 export function sentry(options?: Sentry.BunOptions) {
 	const dsn = options?.dsn ?? Bun.env.SENTRY_DSN
@@ -30,24 +30,6 @@ export function sentry(options?: Sentry.BunOptions) {
 				function captureException({ error, Sentry }) {
 					Sentry.captureException(error)
 				}
-			)
-			// Need this to inject attributes into the span
-			// https://github.com/elysiajs/opentelemetry/issues/40
-			.onAfterResponse(
-				{ as: 'global' },
-				function injectAttributes({
-					body,
-					cookie,
-					params,
-					request,
-					response,
-					route,
-					server,
-					store,
-					headers,
-					path,
-					query
-				}) {}
 			)
 	)
 }
